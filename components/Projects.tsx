@@ -7,7 +7,7 @@ const projectsData = [
     title: "EKARBOT-Real Estate Chatbot System",
     description:
       "EKARBOT is an AI-powered real estate chatbot built with n8n, TypeScript, and Supabase. It uses OpenAI LLMs with RAG on real CRM and Bayut property data to deliver smart, real-time insights.",
-    imageUrl: "public\images\Ekarbot-image.jpg",
+    imageUrl: "/images/Ekarbot-image.jpg", // <-- remove 'public\' and use forward slash
     githubUrl: "#",
     tags: ["Typescript", "n8n", "Supabase", "Openai API"],
   },
@@ -15,7 +15,7 @@ const projectsData = [
     title: "Dmythra-Diff-abled People Helping System",
     description:
       "A web platform built with Flask that connects differently-abled individuals with resources, services, and community support.",
-    imageUrl: "public\images\Dmythra-image.jpg",
+    imageUrl: "/images/Dmythra-image.jpg",
     githubUrl: "https://github.com/nihalvp321/DMYTHRA.git",
     tags: ["Python-Flask", "HTML,CSS,JAVASCRIPT", "Sqlite"],
   },
@@ -23,7 +23,7 @@ const projectsData = [
     title: "HeartGuard-Heart Disease Prediction System",
     description:
       "A machine learning-based Flask app that predicts the risk of heart disease using user health data and displays results interactively.",
-    imageUrl: "public\images\Heartguard-image.jpg",
+    imageUrl: "/images/Heartguard-image.jpg",
     githubUrl: "https://github.com/nihalvp321/HeartGuard.git",
     tags: ["Scikit-Learn", "Python-Flask", "Sqlite"],
   },
@@ -31,7 +31,7 @@ const projectsData = [
     title: "Routescape-KSRTC Bus and Room Booking System",
     description:
       "An integrated booking system for KSRTC buses and accommodations, offering real-time availability and seamless reservations.",
-    imageUrl: "public\images\Routescape-image.jpg",
+    imageUrl: "/images/Routescape-image.jpg",
     githubUrl: "https://github.com/nihalvp321/Routscape.git",
     tags: ["Python-Flask", "HTML,CSS,JAVASCRIPT", "Sqlite"],
   },
