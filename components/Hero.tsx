@@ -73,7 +73,7 @@ const Hero: React.FC = () => {
               
               {/* Image layer with grayscale to color transition */}
               <img
-                src="public\images\nihal-image.jpg"
+                src="images/nihal-image.jpg"
                 alt="Profile"
                 className="absolute inset-0 w-full h-full object-cover rounded-full 
                            grayscale brightness-[70%] contrast-[90%] 
