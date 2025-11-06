@@ -71,7 +71,7 @@ const About: React.FC = () => {
               className="relative group rounded-2xl overflow-hidden border border-gray-700/60 hover:border-cyan-400/70 shadow-[0_0_25px_rgba(0,255,255,0.15)] transition-all duration-500"
             >
               <img
-                src="WhatsApp Image 2025-10-30 at 10.20.40_3ea90001.jpg"
+                src="public\images\nihal-image.jpg"
                 alt="About me"
                 className="rounded-2xl object-cover w-full h-auto transform group-hover:scale-105 transition-transform duration-700"
               />
