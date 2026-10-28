@@ -1,125 +1,126 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import ProjectCard from "./ProjectCard";
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Layers, ArrowUpRight, Github, ExternalLink, Sparkles } from 'lucide-react';
+import { PROJECTS_DATA } from '../data/portfolioData';
+import { Project } from '../types';
 
-const projectsData = [
-  {
-    title: "EKARBOT-Real Estate Chatbot System",
-    description:
-      "EKARBOT is an AI-powered real estate chatbot built with n8n, TypeScript, and Supabase. It uses OpenAI LLMs with RAG on real CRM and Bayut property data to deliver smart, real-time insights.",
-    imageUrl: "/images/Ekarbot-image.jpg", // <-- remove 'public\' and use forward slash
-    githubUrl: "#",
-    tags: ["Typescript", "n8n", "Supabase", "Openai API"],
-  },
-  {
-    title: "Dmythra-Diff-abled People Helping System",
-    description:
-      "A web platform built with Flask that connects differently-abled individuals with resources, services, and community support.",
-    imageUrl: "/images/Dmythra-image.jpg",
-    githubUrl: "https://github.com/nihalvp321/DMYTHRA.git",
-    tags: ["Python-Flask", "HTML,CSS,JAVASCRIPT", "Sqlite"],
-  },
-  {
-    title: "HeartGuard-Heart Disease Prediction System",
-    description:
-      "A machine learning-based Flask app that predicts the risk of heart disease using user health data and displays results interactively.",
-    imageUrl: "/images/Heartguard-image.jpg",
-    githubUrl: "https://github.com/nihalvp321/HeartGuard.git",
-    tags: ["Scikit-Learn", "Python-Flask", "Sqlite"],
-  },
-  {
-    title: "Routescape-KSRTC Bus and Room Booking System",
-    description:
-      "An integrated booking system for KSRTC buses and accommodations, offering real-time availability and seamless reservations.",
-    imageUrl: "/images/Routescape-image.jpg",
-    githubUrl: "https://github.com/nihalvp321/Routscape.git",
-    tags: ["Python-Flask", "HTML,CSS,JAVASCRIPT", "Sqlite"],
-  },
-];
+interface ProjectsProps {
+  onOpenProjectModal: (project: Project) => void;
+}
 
-const Projects: React.FC = () => {
-  const [isHovered, setIsHovered] = useState(false);
+const Projects: React.FC<ProjectsProps> = ({ onOpenProjectModal }) => {
+  const [selectedFilter, setSelectedFilter] = useState<'all' | 'rag' | 'enterprise' | 'ml'>('all');
 
-  // Define the common transition properties
-  const commonTransition = {
-    repeatType: "loop" as const, // Framer Motion needs this cast
-    duration: 25,
-    ease: "linear" as const,
-  };
+  const filterButtons = [
+    { label: "ALL SYSTEMS", value: "all" },
+    { label: "GENERATIVE AI & RAG", value: "rag" },
+    { label: "ENTERPRISE SAAS", value: "enterprise" },
+    { label: "HEALTHCARE & ML", value: "ml" },
+  ];
 
-  // Define the transition based on the hover state
-  const carouselTransition = {
-    x: {
-      ...commonTransition,
-      // Key change: Repeat is set to 0 (no repeat) when hovered, otherwise Infinity.
-      repeat: isHovered ? 0 : Infinity, 
-      // If repeat is 0, we need to ensure the animation value is what we want (it will be its current position).
-    },
-  };
+  const filteredProjects = selectedFilter === 'all'
+    ? PROJECTS_DATA
+    : PROJECTS_DATA.filter(p => p.category === selectedFilter);
 
   return (
-    <section id="projects" className="py-24 bg-gray-900 relative overflow-hidden">
-      {/* Subtle radial gradient/light behind content for atmosphere */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-cyan-500/10 rounded-full blur-[100px]"></div>
-      </div>
-      
-      <div className="container mx-auto px-6 relative z-10">
-        <motion.h2
-          initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-5xl font-extrabold text-center mb-4 tracking-tight"
-        >
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500">
-            Showcase
+    <section id="projects" className="py-12 sm:py-16 border-t border-black/10 scroll-mt-6">
+      {/* Header & Filter Bar */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12">
+        <div>
+          <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#DF643B] flex items-center gap-1.5 mb-2">
+            <Layers className="w-4 h-4" /> Systems Portfolio
           </span>
-          <span className="text-white"> Projects</span>
-        </motion.h2>
-        {/* Enhanced Divider with About-like motion */}
-        <motion.div
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          transition={{ duration: 0.8 }}
-          className="w-32 h-1.5 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 mx-auto mb-16 rounded-full shadow-[0_0_15px_rgba(0,255,255,0.5)] origin-left"
-        />
+          <h2 className="font-editorial text-3xl sm:text-5xl font-bold tracking-tight text-[#141413]">
+            Featured Engineering Projects
+          </h2>
+        </div>
 
-        {/* Auto-Scrolling Carousel with Mask */}
-        <div className="relative overflow-hidden">
-          {/* Fading Mask Left to hide the start/end point */}
-          <div className="absolute top-0 left-0 h-full w-20 bg-gradient-to-r from-gray-900 to-transparent z-20 pointer-events-none"></div>
-          {/* Fading Mask Right to hide the start/end point */}
-          <div className="absolute top-0 right-0 h-full w-20 bg-gradient-to-l from-gray-900 to-transparent z-20 pointer-events-none"></div>
-
-          {/* New: The outer div handles the hover state for the entire carousel row */}
-          <div 
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
-            <motion.div
-              className="flex space-x-8 w-max"
-              // The animate prop defines the motion
-              animate={{ x: ["0%", "-50%"] }} 
-              // The transition prop controls the duration and, importantly, the repeat count (Infinity or 0).
-              transition={carouselTransition}
+        {/* Category Filters */}
+        <div className="flex flex-wrap gap-2">
+          {filterButtons.map((btn) => (
+            <button
+              key={btn.value}
+              onClick={() => setSelectedFilter(btn.value as any)}
+              className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
+                selectedFilter === btn.value
+                  ? "bg-[#141413] text-white shadow-md"
+                  : "bg-white text-neutral-600 hover:text-black border border-black/10 hover:border-black/20"
+              }`}
             >
-              {/* Duplicate the cards to create infinite scroll illusion */}
-              {[...projectsData, ...projectsData].map((project, index) => (
-                <motion.div
-                  key={index}
-                  className="flex-shrink-0 w-[20rem]"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: (index % projectsData.length) * 0.08 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                >
-                  <ProjectCard {...project} />
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
+              {btn.label}
+            </button>
+          ))}
         </div>
       </div>
+
+      {/* Projects Grid */}
+      <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <AnimatePresence>
+          {filteredProjects.map((project, index) => (
+            <motion.div
+              layout
+              key={project.id}
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.96 }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              onClick={() => onOpenProjectModal(project)}
+              className="bg-white rounded-3xl p-5 sm:p-6 border border-black/10 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+            >
+              <div>
+                {/* Visual Thumbnail */}
+                <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden bg-neutral-100 mb-5 relative">
+                  <img
+                    src={project.imageUrl}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-600 ease-out"
+                  />
+                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-bold uppercase tracking-wider text-neutral-800 shadow-sm">
+                    {project.categoryLabel}
+                  </div>
+                </div>
+
+                {/* Title & Subtitle */}
+                <div className="flex items-start justify-between gap-2 mb-2">
+                  <h3 className="font-editorial text-2xl font-bold text-[#141413] group-hover:text-[#DF643B] transition-colors">
+                    {project.title}
+                  </h3>
+                  <div className="w-8 h-8 rounded-full bg-neutral-100 group-hover:bg-[#141413] group-hover:text-white flex items-center justify-center transition-colors shrink-0">
+                    <ArrowUpRight className="w-4 h-4" />
+                  </div>
+                </div>
+                <p className="text-xs font-semibold text-neutral-500 uppercase tracking-wider mb-3">
+                  {project.subtitle}
+                </p>
+
+                {/* Short Description */}
+                <p className="text-xs sm:text-sm text-neutral-700 leading-relaxed mb-4 line-clamp-3">
+                  {project.description}
+                </p>
+              </div>
+
+              {/* Bottom: Tags */}
+              <div className="pt-4 border-t border-neutral-100">
+                <div className="flex flex-wrap gap-1.5">
+                  {project.technologies.slice(0, 3).map((tech, i) => (
+                    <span
+                      key={i}
+                      className="px-2.5 py-1 rounded-full bg-neutral-100 text-[10px] font-semibold text-neutral-800 tracking-wide"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                  {project.technologies.length > 3 && (
+                    <span className="px-2 py-1 rounded-full bg-neutral-50 text-[10px] font-semibold text-neutral-500">
+                      +{project.technologies.length - 3}
+                    </span>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div>
     </section>
   );
 };

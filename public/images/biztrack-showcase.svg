@@ -1,0 +1,269 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient (Muted Studio Sage) -->
+    <linearGradient id="bgSage" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2E8DC" />
+      <stop offset="50%" stop-color="#D9E2D2" />
+      <stop offset="100%" stop-color="#CFD9C7" />
+    </linearGradient>
+
+    <!-- Center Radial Glow -->
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.65" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Monitor Drop Shadow -->
+    <filter id="monitorShadow" x="-20%" y="-15%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="28" stdDeviation="24" flood-color="#1B261D" flood-opacity="0.24" />
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#1B261D" flood-opacity="0.14" />
+    </filter>
+
+    <filter id="standShadow" x="-30%" y="-20%" width="160%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#1A241C" flood-opacity="0.25" />
+    </filter>
+
+    <!-- Metallic Frame Gradient -->
+    <linearGradient id="frameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3A403A" />
+      <stop offset="50%" stop-color="#242924" />
+      <stop offset="100%" stop-color="#181B18" />
+    </linearGradient>
+
+    <linearGradient id="standGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4C544C" />
+      <stop offset="100%" stop-color="#2C322C" />
+    </linearGradient>
+
+    <!-- Chart Gradients -->
+    <linearGradient id="chartGradBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#3B82F6" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="chartGradPurple" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Screen Glass Highlight -->
+    <linearGradient id="screenGlass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.22" />
+      <stop offset="30%" stop-color="#FFFFFF" stop-opacity="0.03" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </linearGradient>
+
+    <filter id="btnShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1200" height="750" fill="url(#bgSage)" />
+  <rect width="1200" height="750" fill="url(#centerGlow)" />
+
+  <!-- Subtle Concentric Architectural Circles -->
+  <g fill="none" stroke="#FFFFFF" stroke-opacity="0.45" stroke-width="1.2">
+    <circle cx="600" cy="385" r="150" />
+    <circle cx="600" cy="385" r="260" />
+    <circle cx="600" cy="385" r="380" />
+    <circle cx="600" cy="385" r="510" />
+    <circle cx="600" cy="385" r="660" stroke-opacity="0.25" />
+    <circle cx="600" cy="385" r="820" stroke-opacity="0.12" />
+  </g>
+
+  <!-- Top-Left Monospace Tag -->
+  <text x="50" y="62" font-family="'JetBrains Mono', 'SF Mono', Consolas, monospace" font-size="14" font-weight="700" fill="#697764" letter-spacing="2.5">02 / ENTERPRISE ERP SAAS</text>
+
+  <!-- Bottom-Right Circular Action Button -->
+  <g filter="url(#btnShadow)">
+    <circle cx="1140" cy="690" r="28" fill="#FFFFFF" />
+    <path d="M1133 697 L1147 683 M1137 683 L1147 683 L1147 693" stroke="#232822" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+  <!-- ==================== DESKTOP MONITOR MOCKUP ==================== -->
+  <g transform="translate(600, 375)">
+    <!-- Stand Base and Neck Shadow -->
+    <ellipse cx="0" cy="275" rx="140" ry="20" fill="#152017" opacity="0.25" filter="url(#standShadow)" />
+
+    <!-- Stand Neck -->
+    <path d="M-22 170 L22 170 L18 265 L-18 265 Z" fill="url(#standGrad)" />
+
+    <!-- Stand Minimalist Base -->
+    <path d="M-90 268 C-90 264, -80 262, 0 262 C80 262, 90 264, 90 268 L82 278 C82 282, 70 284, 0 284 C-70 284, -82 282, -82 278 Z" fill="#282E28" stroke="#3E473E" stroke-width="1" />
+
+    <!-- Monitor Outer Body (Bezel) -->
+    <rect x="-420" y="-240" width="840" height="480" rx="20" fill="url(#frameGrad)" stroke="#4A544A" stroke-width="2" filter="url(#monitorShadow)" />
+
+    <!-- Display Screen -->
+    <rect x="-408" y="-228" width="816" height="456" rx="12" fill="#0A0E17" />
+
+    <!-- ================= Web App UI (BiztrackPro ERP) ================= -->
+    <g transform="translate(-408, -228)">
+      <!-- Top Browser Bar -->
+      <rect x="0" y="0" width="816" height="42" fill="#111827" />
+      <circle cx="20" cy="21" r="5" fill="#EF4444" />
+      <circle cx="36" cy="21" r="5" fill="#F59E0B" />
+      <circle cx="52" cy="21" r="5" fill="#10B981" />
+
+      <!-- Brand -->
+      <text x="80" y="26" font-family="system-ui, sans-serif" font-size="12" font-weight="900" fill="#3B82F6" letter-spacing="1">BIZTRACK<tspan fill="#F8FAFC">PRO</tspan></text>
+      <rect x="190" y="11" width="135" height="20" rx="10" fill="#1E293B" />
+      <circle cx="202" cy="21" r="3.5" fill="#10B981" />
+      <text x="214" y="25" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#94A3B8">Multi-Tenant ERP</text>
+
+      <!-- Search / Global Navigation -->
+      <rect x="345" y="8" width="310" height="26" rx="13" fill="#1E293B" stroke="#334155" stroke-width="1" />
+      <text x="365" y="25" font-family="system-ui, sans-serif" font-size="10" font-weight="500" fill="#94A3B8">🔍 Search across Finance, HR, Inventory, Invoices...</text>
+
+      <rect x="675" y="10" width="125" height="22" rx="11" fill="#3B82F6" />
+      <text x="737" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#FFFFFF">+ NEW INVOICE</text>
+
+      <!-- Main Layout: Sidebar (150px) + Main Content (666px) -->
+      <!-- Left Sidebar -->
+      <g transform="translate(0, 42)">
+        <rect x="0" y="0" width="145" height="414" fill="#0D131F" />
+        
+        <!-- Nav items -->
+        <g transform="translate(10, 16)">
+          <!-- Active Item: Overview -->
+          <rect x="0" y="0" width="125" height="30" rx="8" fill="#1E293B" />
+          <circle cx="16" cy="15" r="4" fill="#3B82F6" />
+          <text x="30" y="19" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#FFFFFF">Executive KPIs</text>
+
+          <g transform="translate(0, 38)">
+            <text x="30" y="18" font-family="system-ui, sans-serif" font-size="10" font-weight="500" fill="#94A3B8">Finance &amp; Ledger</text>
+          </g>
+          <g transform="translate(0, 68)">
+            <text x="30" y="18" font-family="system-ui, sans-serif" font-size="10" font-weight="500" fill="#94A3B8">HR &amp; Payroll</text>
+          </g>
+          <g transform="translate(0, 98)">
+            <text x="30" y="18" font-family="system-ui, sans-serif" font-size="10" font-weight="500" fill="#94A3B8">Inventory &amp; POS</text>
+          </g>
+          <g transform="translate(0, 128)">
+            <text x="30" y="18" font-family="system-ui, sans-serif" font-size="10" font-weight="500" fill="#94A3B8">Sales &amp; CRM</text>
+          </g>
+          <g transform="translate(0, 158)">
+            <rect x="0" y="0" width="125" height="28" rx="6" fill="#8B5CF6" opacity="0.15" />
+            <text x="30" y="18" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#C084FC">AI Copilot ✨</text>
+          </g>
+        </g>
+
+        <!-- System Status at bottom of sidebar -->
+        <g transform="translate(10, 320)">
+          <rect x="0" y="0" width="125" height="78" rx="8" fill="#161F30" />
+          <text x="10" y="20" font-family="system-ui, sans-serif" font-size="8" font-weight="700" fill="#94A3B8">CI/CD STATUS</text>
+          <circle cx="16" cy="36" r="3.5" fill="#10B981" />
+          <text x="26" y="39" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#F8FAFC">Prod v3.8 Healthy</text>
+          <text x="10" y="56" font-family="system-ui, sans-serif" font-size="8" font-weight="500" fill="#64748B">99.98% Uptime SLA</text>
+          <text x="10" y="68" font-family="system-ui, sans-serif" font-size="8" font-weight="500" fill="#64748B">Supabase / AWS</text>
+        </g>
+      </g>
+
+      <!-- Main ERP Workspace -->
+      <g transform="translate(155, 52)">
+        <!-- 4 Top KPI Metric Cards -->
+        <g>
+          <!-- Card 1: Revenue -->
+          <rect x="0" y="0" width="150" height="72" rx="10" fill="#131B2A" stroke="#1E293B" stroke-width="1" />
+          <text x="12" y="20" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#94A3B8">TOTAL REVENUE</text>
+          <text x="12" y="44" font-family="system-ui, sans-serif" font-size="16" font-weight="900" fill="#FFFFFF">$2,840,650</text>
+          <text x="12" y="60" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#10B981">↑ +24.8% MoM</text>
+
+          <!-- Card 2: Payroll -->
+          <rect x="162" y="0" width="150" height="72" rx="10" fill="#131B2A" stroke="#1E293B" stroke-width="1" />
+          <text x="174" y="20" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#94A3B8">ACTIVE PAYROLL</text>
+          <text x="174" y="44" font-family="system-ui, sans-serif" font-size="16" font-weight="900" fill="#FFFFFF">1,280 Staff</text>
+          <text x="174" y="60" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#38BDF8">100% On-Time</text>
+
+          <!-- Card 3: POS Terminals -->
+          <rect x="324" y="0" width="150" height="72" rx="10" fill="#131B2A" stroke="#1E293B" stroke-width="1" />
+          <text x="336" y="20" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#94A3B8">CONNECTED STORES</text>
+          <text x="336" y="44" font-family="system-ui, sans-serif" font-size="16" font-weight="900" fill="#FFFFFF">48 Entities</text>
+          <text x="336" y="60" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#10B981">Zero Latency</text>
+
+          <!-- Card 4: Inventory -->
+          <rect x="486" y="0" width="160" height="72" rx="10" fill="#131B2A" stroke="#1E293B" stroke-width="1" />
+          <text x="498" y="20" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#94A3B8">STOCK EFFICIENCY</text>
+          <text x="498" y="44" font-family="system-ui, sans-serif" font-size="16" font-weight="900" fill="#F59E0B">98.6%</text>
+          <text x="498" y="60" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#F59E0B">Automated Reorder</text>
+        </g>
+
+        <!-- Middle Row: Interactive Financial Analytics Chart (Left) + AI Copilot Panel (Right) -->
+        <!-- Financial Chart Container -->
+        <g transform="translate(0, 84)">
+          <rect x="0" y="0" width="430" height="206" rx="12" fill="#131B2A" stroke="#1E293B" stroke-width="1" />
+          <text x="16" y="26" font-family="system-ui, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF">Revenue &amp; Cash Flow Projection</text>
+          <text x="16" y="40" font-family="system-ui, sans-serif" font-size="9" font-weight="500" fill="#64748B">Monthly multi-currency consolidation across subsidiaries</text>
+
+          <!-- Chart Area -->
+          <g transform="translate(20, 60)">
+            <!-- Grid lines -->
+            <line x1="0" y1="0" x2="390" y2="0" stroke="#1E293B" stroke-width="1" stroke-dasharray="3" />
+            <line x1="0" y1="35" x2="390" y2="35" stroke="#1E293B" stroke-width="1" stroke-dasharray="3" />
+            <line x1="0" y1="70" x2="390" y2="70" stroke="#1E293B" stroke-width="1" stroke-dasharray="3" />
+            <line x1="0" y1="105" x2="390" y2="105" stroke="#1E293B" stroke-width="1" />
+
+            <!-- Purple Curve Area -->
+            <path d="M0 80 Q65 70, 130 50 T260 30 T390 10 L390 105 L0 105 Z" fill="url(#chartGradPurple)" />
+            <path d="M0 80 Q65 70, 130 50 T260 30 T390 10" fill="none" stroke="#A855F7" stroke-width="2.5" />
+
+            <!-- Blue Curve Area -->
+            <path d="M0 95 Q65 85, 130 65 T260 45 T390 22 L390 105 L0 105 Z" fill="url(#chartGradBlue)" />
+            <path d="M0 95 Q65 85, 130 65 T260 45 T390 22" fill="none" stroke="#38BDF8" stroke-width="2.5" />
+
+            <!-- Month Labels -->
+            <text x="10" y="122" font-family="system-ui, sans-serif" font-size="8" font-weight="600" fill="#64748B">JAN</text>
+            <text x="75" y="122" font-family="system-ui, sans-serif" font-size="8" font-weight="600" fill="#64748B">MAR</text>
+            <text x="140" y="122" font-family="system-ui, sans-serif" font-size="8" font-weight="600" fill="#64748B">MAY</text>
+            <text x="210" y="122" font-family="system-ui, sans-serif" font-size="8" font-weight="600" fill="#64748B">JUL</text>
+            <text x="280" y="122" font-family="system-ui, sans-serif" font-size="8" font-weight="600" fill="#64748B">SEP</text>
+            <text x="350" y="122" font-family="system-ui, sans-serif" font-size="8" font-weight="600" fill="#38BDF8">NOV (PROJ)</text>
+          </g>
+        </g>
+
+        <!-- AI Executive Copilot Widget (Right) -->
+        <g transform="translate(442, 84)">
+          <rect x="0" y="0" width="204" height="206" rx="12" fill="#131B2A" stroke="#1E293B" stroke-width="1" />
+          <rect x="0" y="0" width="204" height="36" rx="12" fill="#1E293B" />
+          <circle cx="18" cy="18" r="6" fill="#8B5CF6" />
+          <text x="32" y="22" font-family="system-ui, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF">AI ERP Assistant</text>
+
+          <g transform="translate(10, 46)">
+            <rect x="0" y="0" width="184" height="58" rx="8" fill="#1E293B" />
+            <text x="8" y="16" font-family="system-ui, sans-serif" font-size="8" font-weight="700" fill="#A855F7">APPROVAL SUMMARY</text>
+            <text x="8" y="32" font-family="system-ui, sans-serif" font-size="8" font-weight="400" fill="#E2E8F0">14 vendor purchase orders</text>
+            <text x="8" y="46" font-family="system-ui, sans-serif" font-size="8" font-weight="400" fill="#E2E8F0">auto-verified against budget.</text>
+          </g>
+
+          <g transform="translate(10, 114)">
+            <rect x="0" y="0" width="184" height="42" rx="8" fill="#0F172A" stroke="#334155" stroke-width="1" />
+            <circle cx="16" cy="21" r="4" fill="#10B981" />
+            <text x="28" y="24" font-family="system-ui, sans-serif" font-size="8" font-weight="600" fill="#38BDF8">Q4 Cash Flow: +18.4%</text>
+          </g>
+
+          <g transform="translate(10, 166)">
+            <rect x="0" y="0" width="184" height="28" rx="6" fill="#3B82F6" />
+            <text x="92" y="18" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#FFFFFF">Generate Audit Report</text>
+          </g>
+        </g>
+
+        <!-- Bottom Status Bar -->
+        <g transform="translate(0, 300)">
+          <rect x="0" y="0" width="646" height="88" rx="10" fill="#131B2A" stroke="#1E293B" stroke-width="1" />
+          <text x="16" y="24" font-family="system-ui, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF">Recent Enterprise Transactions</text>
+
+          <text x="16" y="48" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#94A3B8">TX-9042 • Global Logistics Inc.</text>
+          <text x="240" y="48" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#10B981">+$148,200 (Paid)</text>
+          <text x="420" y="48" font-family="system-ui, sans-serif" font-size="9" font-weight="500" fill="#64748B">Automated Stripe &amp; Bank Sync</text>
+
+          <text x="16" y="70" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#94A3B8">TX-9043 • Cloud Hosting Infrastructure</text>
+          <text x="240" y="70" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#E2E8F0">-$12,450 (Approved)</text>
+          <text x="420" y="70" font-family="system-ui, sans-serif" font-size="9" font-weight="500" fill="#64748B">Zero-downtime AWS Multi-AZ</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Glass Reflection Highlight across monitor -->
+    <path d="M-408 -228 L-180 -228 L-408 120 Z" fill="url(#screenGlass)" pointer-events="none" />
+  </g>
+</svg>

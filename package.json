@@ -11,12 +11,15 @@
   "dependencies": {
     "@google/genai": "^1.27.0",
     "framer-motion": "^12.23.24",
+    "jspdf": "^4.2.1",
     "lucide-react": "^0.552.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-icons": "^5.5.0"
+    "react-icons": "^5.5.0",
+    "sharp": "^0.35.5"
   },
   "devDependencies": {
+    "@imgly/background-removal-node": "^1.4.5",
     "@types/node": "^22.14.0",
     "@vitejs/plugin-react": "^5.0.0",
     "typescript": "~5.8.2",
