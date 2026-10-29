@@ -31,7 +31,7 @@ const CertificateModal: React.FC<CertificateModalProps> = ({ certification, onCl
           transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="relative w-full max-w-4xl max-h-[92vh] bg-[#FAF9F6] text-[#141413] rounded-3xl sm:rounded-[36px] shadow-2xl border border-black/10 overflow-hidden flex flex-col z-10"
         >
-          <div className="w-full flex-1 modal-scroll-container p-5 sm:p-8">
+          <div className="w-full flex-1 min-h-0 overflow-y-auto modal-scroll-container p-5 sm:p-8">
             {/* Header */}
             <div className="flex items-start justify-between gap-4 pb-4 border-b border-black/10 mb-6">
             <div>

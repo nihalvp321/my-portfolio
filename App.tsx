@@ -19,19 +19,6 @@ const App: React.FC = () => {
   const [bioModalOpen, setBioModalOpen] = useState(false);
   const [resumeModalOpen, setResumeModalOpen] = useState(false);
 
-  // Lock body scroll whenever any modal is open to prevent background scrolling & jerking
-  useEffect(() => {
-    const isAnyModalOpen = Boolean(selectedProject || selectedCertificate || bioModalOpen || resumeModalOpen);
-    if (isAnyModalOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [selectedProject, selectedCertificate, bioModalOpen, resumeModalOpen]);
-
   return (
     <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#DF643B] text-[#141413] p-2 sm:p-4 md:p-8 lg:p-12 font-sans">
       {/* Outer Editorial Canvas Frame */}

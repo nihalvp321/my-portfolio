@@ -41,7 +41,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
           </button>
 
           {/* Scrollable Content Container */}
-          <div className="w-full flex-1 modal-scroll-container p-6 sm:p-10">
+          <div className="w-full flex-1 min-h-0 overflow-y-auto modal-scroll-container p-6 sm:p-10">
 
           {/* Project Type & Category Badges */}
           <div className="flex flex-wrap items-center gap-2 mb-4">

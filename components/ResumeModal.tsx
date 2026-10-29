@@ -88,7 +88,7 @@ ${EDUCATION_DATA.map(e => `• ${e.degree} – ${e.institution} (${e.period})${e
           transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="relative w-full max-w-4xl max-h-[92vh] bg-white text-neutral-900 rounded-3xl sm:rounded-[36px] shadow-2xl border border-neutral-300 overflow-hidden flex flex-col z-10 print:p-0 print:border-none print:shadow-none print:max-h-none print:overflow-visible print:rounded-none"
         >
-          <div className="w-full flex-1 modal-scroll-container p-6 sm:p-12">
+          <div className="w-full flex-1 min-h-0 overflow-y-auto modal-scroll-container p-6 sm:p-12">
             {/* Action Bar (Top) */}
             <div className="flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-neutral-200 mb-8 print:hidden">
             <div className="flex items-center gap-2">

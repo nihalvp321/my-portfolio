@@ -41,7 +41,7 @@ const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose, onOpenResume }) =>
             <X className="w-5 h-5" />
           </button>
 
-          <div className="w-full flex-1 modal-scroll-container p-6 sm:p-10">
+          <div className="w-full flex-1 min-h-0 overflow-y-auto modal-scroll-container p-6 sm:p-10">
 
           <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 items-start mb-8">
             <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-2xl sm:rounded-3xl overflow-hidden shrink-0 bg-[#FAF9F6] border border-black/10 shadow-md flex items-end justify-center">
