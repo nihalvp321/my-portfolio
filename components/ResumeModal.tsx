@@ -53,7 +53,11 @@ CERTIFICATIONS & INDUSTRY CREDENTIALS:
 ${CERTIFICATIONS_DATA.map(c => `• ${c.title} – ${c.issuer} (Issued: ${c.issuedDate})\n  Official Credly Verification: ${c.verifyUrl}`).join('\n')}
 
 KEY ENGINEERING PROJECTS:
-${PROJECTS_DATA.map(p => `• ${p.title} – ${p.subtitle} [${p.technologies.join(', ')}]\n${p.keyHighlights.map(h => `  - ${h}`).join('\n')}`).join('\n')}
+[Company Projects – Mite Technology]
+${PROJECTS_DATA.filter(p => p.projectType === 'company').map(p => `• ${p.title} – ${p.subtitle} [${p.technologies.join(', ')}]\n${p.keyHighlights.map(h => `  - ${h}`).join('\n')}`).join('\n')}
+
+[Personal Projects]
+${PROJECTS_DATA.filter(p => p.projectType === 'personal').map(p => `• ${p.title} – ${p.subtitle} [${p.technologies.join(', ')}]\n${p.keyHighlights.map(h => `  - ${h}`).join('\n')}`).join('\n')}
 
 EDUCATION:
 ${EDUCATION_DATA.map(e => `• ${e.degree} – ${e.institution} (${e.period})${e.specialization ? `\n  Specialization: ${e.specialization}` : ''}`).join('\n')}
@@ -254,27 +258,63 @@ ${EDUCATION_DATA.map(e => `• ${e.degree} – ${e.institution} (${e.period})${e
 
             {/* Projects */}
             <section>
-              <h2 className="text-sm font-extrabold tracking-wider text-blue-900 uppercase border-b border-blue-900 pb-1 mb-2.5">
-                KEY ENGINEERING PROJECTS
+              <h2 className="text-sm font-extrabold tracking-wider text-blue-900 uppercase border-b border-blue-900 pb-1 mb-3 flex items-center justify-between">
+                <span>KEY ENGINEERING PROJECTS</span>
+                <span className="text-[10px] font-bold text-neutral-500 normal-case tracking-normal">
+                  Company & Personal Systems
+                </span>
               </h2>
-              <div className="space-y-3.5">
-                {PROJECTS_DATA.map((proj) => (
-                  <div key={proj.id}>
-                    <div className="text-xs sm:text-sm font-bold text-neutral-900">
-                      <span>{proj.title} – {proj.subtitle}</span>{' '}
-                      <span className="font-normal italic text-neutral-600">
-                        / {proj.technologies.join(', ')}
-                      </span>
+
+              {/* Company Projects */}
+              <div className="mb-4">
+                <div className="text-[11px] font-bold uppercase tracking-wider text-amber-900 bg-amber-50 px-2.5 py-1 rounded border border-amber-200 mb-2.5 inline-block">
+                  Company Projects · Mite Technology
+                </div>
+                <div className="space-y-3 pl-1">
+                  {PROJECTS_DATA.filter(p => p.projectType === 'company').map((proj) => (
+                    <div key={proj.id}>
+                      <div className="text-xs sm:text-sm font-bold text-neutral-900">
+                        <span>{proj.title} – {proj.subtitle}</span>{' '}
+                        <span className="font-normal italic text-neutral-600">
+                          / {proj.technologies.join(', ')}
+                        </span>
+                      </div>
+                      <ul className="list-disc list-inside text-xs sm:text-sm text-neutral-700 mt-1 space-y-0.5 pl-2">
+                        {proj.keyHighlights.map((hl, hIdx) => (
+                          <li key={hIdx} className="leading-relaxed">
+                            {hl}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                    <ul className="list-disc list-inside text-xs sm:text-sm text-neutral-700 mt-1 space-y-0.5 pl-2">
-                      {proj.keyHighlights.map((hl, hIdx) => (
-                        <li key={hIdx} className="leading-relaxed">
-                          {hl}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
+                  ))}
+                </div>
+              </div>
+
+              {/* Personal Projects */}
+              <div>
+                <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-900 bg-emerald-50 px-2.5 py-1 rounded border border-emerald-200 mb-2.5 inline-block">
+                  Personal Research & Open Source Projects
+                </div>
+                <div className="space-y-3 pl-1">
+                  {PROJECTS_DATA.filter(p => p.projectType === 'personal').map((proj) => (
+                    <div key={proj.id}>
+                      <div className="text-xs sm:text-sm font-bold text-neutral-900">
+                        <span>{proj.title} – {proj.subtitle}</span>{' '}
+                        <span className="font-normal italic text-neutral-600">
+                          / {proj.technologies.join(', ')}
+                        </span>
+                      </div>
+                      <ul className="list-disc list-inside text-xs sm:text-sm text-neutral-700 mt-1 space-y-0.5 pl-2">
+                        {proj.keyHighlights.map((hl, hIdx) => (
+                          <li key={hIdx} className="leading-relaxed">
+                            {hl}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
               </div>
             </section>
 

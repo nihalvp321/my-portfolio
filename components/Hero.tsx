@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ChevronLeft, ChevronRight, Sparkles, MapPin, ExternalLink, ArrowUpRight } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight, Sparkles, MapPin, ExternalLink, ArrowUpRight, Building2, User } from 'lucide-react';
 import { PERSONAL_INFO, PROJECTS_DATA } from '../data/portfolioData';
 import { Project } from '../types';
 
@@ -214,6 +214,23 @@ const Hero: React.FC<HeroProps> = ({ onOpenProjectModal, onOpenBioModal }) => {
                     alt={activeProject.title}
                     className="w-full h-full object-cover group-hover/art:scale-105 transition-transform duration-700 ease-out"
                   />
+                  <div className={`absolute top-3 right-3 px-2.5 py-1 rounded-full backdrop-blur-md text-[10px] font-bold uppercase tracking-wider shadow-sm flex items-center gap-1.5 z-10 ${
+                    activeProject.projectType === 'company'
+                      ? "bg-[#141413]/85 text-amber-300 border border-white/10"
+                      : "bg-emerald-950/85 text-emerald-300 border border-emerald-500/20"
+                  }`}>
+                    {activeProject.projectType === 'company' ? (
+                      <>
+                        <Building2 className="w-3 h-3 text-amber-400" />
+                        <span>Company</span>
+                      </>
+                    ) : (
+                      <>
+                        <User className="w-3 h-3 text-emerald-400" />
+                        <span>Personal</span>
+                      </>
+                    )}
+                  </div>
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover/art:opacity-100 transition-opacity flex items-center justify-center">
                     <span className="px-4 py-2 rounded-full bg-white/95 text-black text-xs font-bold tracking-wider uppercase shadow-md flex items-center gap-1.5">
                       Explore Architecture <ArrowUpRight className="w-3.5 h-3.5" />
@@ -223,9 +240,19 @@ const Hero: React.FC<HeroProps> = ({ onOpenProjectModal, onOpenBioModal }) => {
 
                 {/* Project Info */}
                 <div className="md:col-span-5 flex flex-col justify-center text-[#141413]">
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#141413]/70 mb-1">
-                    {activeProject.categoryLabel}
-                  </span>
+                  <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#141413]/70">
+                      {activeProject.categoryLabel}
+                    </span>
+                    <span className="text-[#141413]/40">•</span>
+                    <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
+                      activeProject.projectType === 'company'
+                        ? 'bg-amber-400/30 text-amber-950 font-extrabold'
+                        : 'bg-emerald-400/30 text-emerald-950 font-extrabold'
+                    }`}>
+                      {activeProject.projectType === 'company' ? `${activeProject.company || 'Company'}` : 'Personal Project'}
+                    </span>
+                  </div>
                   <h3 className="font-editorial text-2xl sm:text-3xl font-bold tracking-tight text-[#141413]">
                     {activeProject.title}
                   </h3>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ExternalLink, Github, CheckCircle2, Layers, Cpu, ArrowUpRight } from 'lucide-react';
+import { X, ExternalLink, Github, CheckCircle2, Layers, Cpu, ArrowUpRight, Building2, User } from 'lucide-react';
 import { Project } from '../types';
 
 interface ProjectModalProps {
@@ -40,10 +40,30 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
             <X className="w-5 h-5" />
           </button>
 
-          {/* Category Tag */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-900 text-white text-xs font-semibold tracking-wider uppercase mb-4">
-            <Cpu className="w-3.5 h-3.5 text-orange-400" />
-            {project.categoryLabel}
+          {/* Project Type & Category Badges */}
+          <div className="flex flex-wrap items-center gap-2 mb-4">
+            <div className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border shadow-sm ${
+              project.projectType === 'company'
+                ? 'bg-amber-100 text-amber-950 border-amber-300'
+                : 'bg-emerald-100 text-emerald-950 border-emerald-300'
+            }`}>
+              {project.projectType === 'company' ? (
+                <>
+                  <Building2 className="w-3.5 h-3.5 text-amber-700" />
+                  <span>Company Project · {project.company || 'Mite Technology'}</span>
+                </>
+              ) : (
+                <>
+                  <User className="w-3.5 h-3.5 text-emerald-700" />
+                  <span>Personal Project</span>
+                </>
+              )}
+            </div>
+
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-neutral-900 text-white text-xs font-semibold tracking-wider uppercase">
+              <Cpu className="w-3.5 h-3.5 text-orange-400" />
+              {project.categoryLabel}
+            </div>
           </div>
 
           {/* Title & Subtitle */}
@@ -141,6 +161,12 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
               >
                 <Github className="w-4 h-4" /> View GitHub Source <ArrowUpRight className="w-4 h-4" />
               </a>
+            )}
+            {project.projectType === 'company' && !project.githubUrl && !project.githubFrontendUrl && (
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-100 text-neutral-600 font-medium text-xs border border-neutral-200">
+                <Building2 className="w-3.5 h-3.5 text-amber-600" />
+                <span>Proprietary Enterprise Software · {project.company || 'Mite Technology'}</span>
+              </div>
             )}
             {project.liveUrl && (
               <a

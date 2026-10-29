@@ -1,8 +1,13 @@
+export type ProjectType = 'company' | 'personal';
+
 export interface Project {
   id: string;
   title: string;
   category: 'rag' | 'enterprise' | 'ml';
   categoryLabel: string;
+  projectType: ProjectType;
+  projectTypeLabel: 'Company Project' | 'Personal Project';
+  company?: string;
   subtitle: string;
   description: string;
   longDescription: string;
