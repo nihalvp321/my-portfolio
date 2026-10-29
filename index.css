@@ -13,40 +13,75 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #DF643B;
+  color-scheme: light;
   overflow-x: hidden;
   width: 100%;
   max-width: 100vw;
+  overscroll-behavior-y: none;
 }
 
 body {
   font-family: var(--font-sans);
-  background-color: #E26338;
+  background-color: #DF643B;
   color: #1a1a1a;
   overflow-x: hidden;
   width: 100%;
   max-width: 100vw;
+  min-height: 100vh;
   position: relative;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none;
 }
 
-/* Custom Scrollbar */
+#root {
+  background-color: #DF643B;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Custom Sleek Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1ede8;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #c5bbb0;
+  background: rgba(0, 0, 0, 0.22);
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #9d9285;
+  background: rgba(0, 0, 0, 0.38);
+}
+
+/* Modal Inner Scroll Container - preserves border radius cleanly */
+.modal-scroll-container {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+  -webkit-overflow-scrolling: touch;
+}
+.modal-scroll-container::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-scroll-container::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 24px 0;
+}
+.modal-scroll-container::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 999px;
+}
+.modal-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.35);
 }
 
 /* Typography Utility Classes */

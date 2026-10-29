@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Experience from './components/Experience';
@@ -19,8 +19,21 @@ const App: React.FC = () => {
   const [bioModalOpen, setBioModalOpen] = useState(false);
   const [resumeModalOpen, setResumeModalOpen] = useState(false);
 
+  // Lock body scroll whenever any modal is open to prevent background scrolling & jerking
+  useEffect(() => {
+    const isAnyModalOpen = Boolean(selectedProject || selectedCertificate || bioModalOpen || resumeModalOpen);
+    if (isAnyModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedProject, selectedCertificate, bioModalOpen, resumeModalOpen]);
+
   return (
-    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#DF643B] text-[#141413] p-2 sm:p-4 md:p-8 lg:p-12 transition-colors duration-500 font-sans">
+    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#DF643B] text-[#141413] p-2 sm:p-4 md:p-8 lg:p-12 font-sans">
       {/* Outer Editorial Canvas Frame */}
       <div className="w-full max-w-[1400px] mx-auto bg-[#FAF9F6] rounded-[22px] sm:rounded-[36px] md:rounded-[44px] shadow-[0_20px_60px_rgba(0,0,0,0.18)] border border-black/10 overflow-hidden px-3.5 sm:px-8 md:px-12 py-3.5 sm:py-6">
         

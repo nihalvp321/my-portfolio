@@ -30,16 +30,18 @@ const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose, onOpenResume }) =>
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-[#FAF9F6] text-[#141413] rounded-3xl sm:rounded-[36px] shadow-2xl border border-black/10 p-6 sm:p-10 z-10"
+          className="relative w-full max-w-3xl max-h-[90vh] bg-[#FAF9F6] text-[#141413] rounded-3xl sm:rounded-[36px] shadow-2xl border border-black/10 overflow-hidden flex flex-col z-10"
         >
           {/* Close button */}
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 w-11 h-11 rounded-full bg-neutral-200/70 hover:bg-neutral-300 flex items-center justify-center transition-colors text-neutral-800"
+            className="absolute top-5 right-5 sm:top-6 sm:right-6 w-11 h-11 rounded-full bg-neutral-200/80 hover:bg-neutral-300 flex items-center justify-center transition-colors text-neutral-800 z-30 shadow-sm"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
           </button>
+
+          <div className="w-full flex-1 modal-scroll-container p-6 sm:p-10">
 
           <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 items-start mb-8">
             <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-2xl sm:rounded-3xl overflow-hidden shrink-0 bg-[#FAF9F6] border border-black/10 shadow-md flex items-end justify-center">
@@ -138,9 +140,10 @@ const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose, onOpenResume }) =>
               Close
             </button>
           </div>
-        </motion.div>
-      </div>
-    </AnimatePresence>
+        </div>
+      </motion.div>
+    </div>
+  </AnimatePresence>
   );
 };
 

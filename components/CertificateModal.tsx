@@ -29,10 +29,11 @@ const CertificateModal: React.FC<CertificateModalProps> = ({ certification, onCl
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.94, y: 20 }}
           transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto bg-[#FAF9F6] text-[#141413] rounded-3xl sm:rounded-[36px] shadow-2xl border border-black/10 p-5 sm:p-8 z-10"
+          className="relative w-full max-w-4xl max-h-[92vh] bg-[#FAF9F6] text-[#141413] rounded-3xl sm:rounded-[36px] shadow-2xl border border-black/10 overflow-hidden flex flex-col z-10"
         >
-          {/* Header */}
-          <div className="flex items-start justify-between gap-4 pb-4 border-b border-black/10 mb-6">
+          <div className="w-full flex-1 modal-scroll-container p-5 sm:p-8">
+            {/* Header */}
+            <div className="flex items-start justify-between gap-4 pb-4 border-b border-black/10 mb-6">
             <div>
               <div className="flex items-center gap-2 mb-1.5">
                 <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-bold uppercase tracking-wider">
@@ -101,9 +102,10 @@ const CertificateModal: React.FC<CertificateModalProps> = ({ certification, onCl
               </a>
             </div>
           </div>
-        </motion.div>
-      </div>
-    </AnimatePresence>
+        </div>
+      </motion.div>
+    </div>
+  </AnimatePresence>
   );
 };
 

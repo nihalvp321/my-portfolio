@@ -86,10 +86,11 @@ ${EDUCATION_DATA.map(e => `• ${e.degree} – ${e.institution} (${e.period})${e
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto bg-white text-neutral-900 rounded-3xl sm:rounded-[36px] shadow-2xl border border-neutral-300 p-6 sm:p-12 z-10 print:p-0 print:border-none print:shadow-none print:max-h-none print:overflow-visible print:rounded-none"
+          className="relative w-full max-w-4xl max-h-[92vh] bg-white text-neutral-900 rounded-3xl sm:rounded-[36px] shadow-2xl border border-neutral-300 overflow-hidden flex flex-col z-10 print:p-0 print:border-none print:shadow-none print:max-h-none print:overflow-visible print:rounded-none"
         >
-          {/* Action Bar (Top) */}
-          <div className="flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-neutral-200 mb-8 print:hidden">
+          <div className="w-full flex-1 modal-scroll-container p-6 sm:p-12">
+            {/* Action Bar (Top) */}
+            <div className="flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-neutral-200 mb-8 print:hidden">
             <div className="flex items-center gap-2">
               <span className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse" />
               <span className="text-xs uppercase font-bold tracking-widest text-neutral-500">
@@ -342,9 +343,10 @@ ${EDUCATION_DATA.map(e => `• ${e.degree} – ${e.institution} (${e.period})${e
               </div>
             </section>
           </div>
-        </motion.div>
-      </div>
-    </AnimatePresence>
+        </div>
+      </motion.div>
+    </div>
+  </AnimatePresence>
   );
 };
 
